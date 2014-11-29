@@ -1,9 +1,8 @@
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.Stack ;
 public class Dienblad {
          private Stack<Artikel> artikelen;
-         private Iterator<Artikel> it;
+         
           /**
      * Constructor
      */
