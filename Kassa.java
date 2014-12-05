@@ -7,8 +7,10 @@ import java.util.*;
  */
 public class Kassa {
     private KassaRij kassarij;
-    private int aantalartikelen = 0;
+    private int aantalArtikelen ;
     private double geldbalans = 0;
+    private Dienblad dienblad;
+    private int hoeveelheidPersonen = 0;
      /**
      * Constructor
      */
@@ -21,26 +23,28 @@ public class Kassa {
      * door een echte betaling door de persoon.
      * @param persoon die moet afrekenen
      */
-     public void rekenAf(Persoon persoon) {
+     public void rekenAf2(Persoon persoon) {
+         
          //System.out.println(persoon.getTotaalPrijs());
          //System.out.println(persoon.getAantalArtikelen());
-         this.aantalartikelen += persoon.getAantalArtikelen();
-         this.geldbalans += persoon.getTotaalPrijs();
+        this.aantalArtikelen += persoon.getAantalArtikelen();
+        this.geldbalans += persoon.getTotaalPrijs();
          }
          
-     public void rekenAf2( Persoon persoon )  {
+     public void rekenAf( Persoon persoon )  {
                 Dienblad blad = persoon.getDienblad();
                 Iterator<Artikel> artikelen = blad.getDienblad().iterator();
                 //Maak een apparte variable aan om het te betalen bedrag van deze persoon bij te houden.
                 
                 // Draait de while net zo lang totdat de hele inhoud is doorgelopen.
-                while( artikelen.hasNext() ) { 
-                        // Haalt aantal artikelen op van Persoon.
-                        aantalartikelen++; }
-                
-                this.kassarij.eerstePersoonInRij();
+                    while( artikelen.hasNext() ) { 
+                        aantalArtikelen++; 
+                        Artikel volgendeArtikel = artikelen.next();
+                        geldbalans += volgendeArtikel.getPrijs();
+                        
                     }    
-         
+                hoeveelheidPersonen += 1;    
+                } 
      /**
      * Geeft het aantal artikelen dat de kassa
      * heeft gepasseerd,
@@ -48,8 +52,8 @@ public class Kassa {
      * is aangeroepen.
      * @return aantal artikelen
      */
-     public int aantalArtikelen() {
-         return aantalartikelen;
+     public int getAantalArtikelen() {
+         return aantalArtikelen;
      }
      /**
      * Geeft het totaalbedrag van alle artikelen die
@@ -58,7 +62,7 @@ public class Kassa {
      * is aangeroepen.
      * @return hoeveelheid geld in de kassa
      */
-     public double hoeveelheidGeldInKassa() {
+     public double getHoeveelheidGeldInKassa() {
          return geldbalans;
      }
      /**
@@ -67,6 +71,10 @@ public class Kassa {
      */
      public void resetKassa() {
          geldbalans = 0;
-         aantalartikelen = 0;
+         aantalArtikelen = 0;
+         hoeveelheidPersonen = 0;
      }
-}
+     public int getHoeveelheidPersonen() {
+         return hoeveelheidPersonen;
+     }
+    }

@@ -75,22 +75,11 @@ public class Persoon {
      * @param dienblad
      */
     public void pakDienblad(Dienblad dienblad) {
-        this.dienblad = new Dienblad();//method body omitted
+        this.dienblad = dienblad;
     } 
-     public Dienblad getDienblad() {
-        return dienblad;
-        
-        }
     
-        /**
-     * Methode om artikel te pakken en te plaatsen op het dienblad
-     * @param artikel
-     */
-    public void pakArtikel(Artikel artikel) {
-       if (this.dienblad != null){
-        this.dienblad.voegToe(artikel);//method body omitted
-       }
-    }
+    
+    
     
     /**
      * Methode om de totaalprijs van de artikelen
@@ -202,5 +191,10 @@ public class Persoon {
         System.out.println("Geboortedatum = "+getGeboorteDatum());
         System.out.println("Geslacht = "+getGeslacht());
     }
+    public Dienblad getDienblad()
+     {
+        return dienblad;
+     }
 } 
+
 

@@ -46,7 +46,7 @@ public class Dienblad {
          return prijs;
     }
     public Stack<Artikel> getDienblad() {
-                it = artikelen.iterator();
+                
                 return artikelen;
         }
 }
