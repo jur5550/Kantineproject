@@ -39,10 +39,10 @@ public class KantineSimulatie {
   public KantineSimulatie(){
     kantine=new Kantine();
     random=new Random();
-    int[] hoeveelheden=getRandomArray(
+    int[] hoeveelheden = getRandomArray(
         AANTAL_ARTIKELEN,MIN_ARTIKELEN_PER_SOORT, MAX_ARTIKELEN_PER_SOORT);
-    kantineaanbod=new KantineAanbod(artikelnamen, artikelprijzen, 
-        hoeveelheden); 
+    kantineaanbod=new KantineAanbod(
+        artikelnamen, artikelprijzen, hoeveelheden); 
     kantine.setKantineAanbod(kantineaanbod);
   }
 
@@ -96,8 +96,8 @@ public class KantineSimulatie {
     // for lus voor dagen
     for(int i=0;i<dagen;i++) {
       // bedenk hoeveel personen vandaag binnen lopen
-      int aantalpersonen=5;
-
+      int aantalpersonen=getRandomValue(10,40);
+      
         // laat de personen maar komen...
         for(int j=0;j<aantalpersonen;j++) {
           // maak persoon en dienblad aan, koppel ze
@@ -109,8 +109,8 @@ public class KantineSimulatie {
 
             // genereer de artikelnummers, dit zijn indexen 
             // van de artikelnamen array  
-            int[] tepakken=getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN-1);
-
+            int[] tepakken=getRandomArray(aantalartikelen, 0, AANTAL_ARTIKELEN - 1);
+            
           // vind de artikelnamen op basis van 
           // de indexen hierboven
           String[] artikelen=geefArtikelNamen(tepakken);
