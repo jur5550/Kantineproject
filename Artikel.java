@@ -15,6 +15,7 @@ public class Artikel
         this.artikel = artikel;
         this.prijs = prijs;
     }
+    
     public String getArtikel()
     {
         return artikel;

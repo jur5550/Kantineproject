@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.params=bsn\ voornaam\ achternaam\ nieuwGeslacht\ dag\ maand\ jaar\ studentNummer\ studieRichting
+comment0.target=Student(int,\ java.lang.String,\ java.lang.String,\ char,\ int,\ int,\ int,\ int,\ java.lang.String)
+comment0.text=\r\n\ Constructor\ for\ objects\ of\ class\ Student\r\n
+comment1.params=
+comment1.target=Student()
+comment2.params=studieRichting
+comment2.target=void\ setStudieRichting(java.lang.String)
+comment3.params=
+comment3.target=java.lang.String\ getStudieRichting()
+comment4.params=studentNummer
+comment4.target=void\ setStudentNummer(int)
+comment5.params=
+comment5.target=int\ getStudentNummer()
+comment6.params=
+comment6.target=void\ drukAf()
+numComments=7
