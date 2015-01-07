@@ -64,13 +64,11 @@ public class Kassa {
             double artikelPrijs = 0.00;
             Artikel volgendeArtikel = artikelen.next();
             if (kortingKaartHouder){
-                
                artikelPrijs = volgendeArtikel.getPrijs();
                korting +=(artikelPrijs*(1-kortingsPercentage));
            } else {
-               artikelPrijs += volgendeArtikel.getPrijs();
+               artikelPrijs = volgendeArtikel.getPrijs();
                totaalPrijs += artikelPrijs;
-            
            }
            
            if (kortingKaartHouder){
