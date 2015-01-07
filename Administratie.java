@@ -1,26 +1,23 @@
 public class Administratie {
-    private KantineSimulatie kantineSimulatie;
     private static final int DAYS_IN_WEEK = 7;
-    private Administratie()
-    {
-        Administratie administratie = new Administratie();
-    }
-
     /**
      * Deze methode berekent van de int array aantal de
      * gemiddelde waarde
-     * 
      * @param aantal
      * @return het gemiddelde
      */
-    public static double berekenGemiddeldAantal(int[] aantal) {
-        if (aantal.length==0) return 0.0;
-        double totaalArtikelen = 0.0;
-        double gemiddeldeAantal = 0;
-        for(int i = 0 ; i < aantal.length ; i++) 
-            totaalArtikelen+=aantal[i];
-        gemiddeldeAantal = totaalArtikelen/aantal.length;
 
+    private Administratie(){
+        Administratie administratie = new Administratie();
+    }
+
+    public static double berekenGemiddeldAantalPersonen(int[] aantal) {
+        double totaalPersonen = 0.0;
+        double gemiddeldeAantal = 0.0;
+        for (int i = 0; i<aantal.length; i++){
+            totaalPersonen += aantal[i];
+        }
+        gemiddeldeAantal = totaalPersonen/aantal.length;
         return gemiddeldeAantal;
     }
 
@@ -31,14 +28,13 @@ public class Administratie {
      * @return Het gemiddelde
      */
     public static double berekenGemiddeldeOmzet(double[] omzet) {
-        if (omzet.length==0) return 0.0;
-        double totaalBedrag = 0.0;
-        double gemiddeldBedrag = 0;
-        for(int i = 0 ; i < omzet.length ; i++) 
-            totaalBedrag+=omzet[i];
-        gemiddeldBedrag = totaalBedrag/omzet.length;
-
-        return gemiddeldBedrag;
+        double totaalOmzet = 0.0;
+        double gemiddeldeOmzet = 0.0;
+        for (int i = 0; i<omzet.length; i++){
+            totaalOmzet += omzet[i];
+        }
+        gemiddeldeOmzet = totaalOmzet/omzet.length;
+        return gemiddeldeOmzet;
     }
 
     /**
@@ -47,19 +43,14 @@ public class Administratie {
      * @return array (7 elementen) met dagomzetten
      */
     public static double[] berekenDagOmzet(double[] omzet) {
-        double[] temp=new double[7];
-        for(int i = 0 ; i < DAYS_IN_WEEK ; i++) {
-        int j = 0;
-         
-         while((i + j * DAYS_IN_WEEK ) < omzet.length) {
-            temp[i] += omzet[i + DAYS_IN_WEEK * j];
-            j++;
-            
-            
+        double[] temp=new double[DAYS_IN_WEEK];
+        for(int i=0;i<DAYS_IN_WEEK;i++) {
+            int j=0;
+            while((i+DAYS_IN_WEEK*j) < omzet.length) {
+                temp[i] += omzet[i + DAYS_IN_WEEK * j];
+                j++;
+            }
         }
-       } 
-       return temp;
+        return temp;
     }
-    
-    
 }

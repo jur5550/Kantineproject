@@ -61,20 +61,18 @@ public class KantineAanbod {
     public Artikel getArtikel(String naam) {
         return getArtikel(getArrayList(naam));
     }
-    //testje
-    public int getArtikelVoorraad(String naam)
-    {
-           return getArrayList(naam).size();
-           
+    
+    public int getArtikelVoorraad(String naam){
+        return getArrayList(naam).size();
+    }
+    
+    public void updateArtikelVoorraad(String naam, int voorraad){
+        double prijs = getArtikel(naam).getPrijs();
+        ArrayList<Artikel> artikelen = new ArrayList<>();
+        for (int i = 0; i < voorraad; i++){
+            artikelen.add(new Artikel(naam, prijs));
         }
-    public void updateArtikelVoorraad(String naam, int voorraad)
-    {
-           double prijs = getArtikel(naam).getPrijs();
-           ArrayList<Artikel> artikelen = new ArrayList<Artikel>();
-            for (int i = 0; i < voorraad; i++) 
-            {
-                artikelen.add(new Artikel(naam, prijs)); 
-            }
-           aanbod.put(naam, artikelen);
+        aanbod.put(naam, artikelen);
     }
 }
+

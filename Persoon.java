@@ -12,6 +12,10 @@ public class Persoon {
     private String Persoonsgeboortedatum ; 
     private char geslacht;
     private Dienblad dienblad;
+    
+    private Betaalwijze betaalwijze;
+    private Contant contant;
+    private Pinpas pinpas;
     public Persoon(int bsn, String voornaam, String achternaam, char nieuwGeslacht, int dag, int maand, int jaar)
     { 
         this.bsn = bsn;
@@ -28,6 +32,8 @@ public class Persoon {
         achternaam = "";
         Persoonsgeboortedatum =("0/0/0");
         geslacht = 0;
+        betaalwijze = new Pinpas();
+        setBetaalwijze(100.0);
     }
     
     public void setBSN(int bsn)
@@ -78,9 +84,6 @@ public class Persoon {
         this.dienblad = dienblad;
     } 
     
-    
-    
-    
     /**
      * Methode om de totaalprijs van de artikelen
      * op dienblad dat bij de persoon hoort uit te rekenen
@@ -100,8 +103,6 @@ public class Persoon {
        return dienblad.getAantalArtikelen();
        
     }
-        
-        
     
      public String getGeslacht() {
         String temp;
@@ -125,12 +126,13 @@ public class Persoon {
     public String getAchternaam() {
          return achternaam;
         }
+        
     public int getBSN(){
         return bsn;
         }
+        
     public void setgeboortedatum(int dag, int maand, int jaar)
     {
-
         if (dag > 0)
             if (maand >= 1 && maand <= 12)
                 if (jaar >= 1900 && jaar <= 2100){
@@ -174,11 +176,8 @@ public class Persoon {
                                     Persoonsgeboortedatum = "0/0/0";
                                 } 
                             break;
-                        
                             default: Persoonsgeboortedatum = "0/0/0"; 
-                            
-                            break;     
-                    
+                            break;
                         }
                     }
                 }
@@ -195,6 +194,56 @@ public class Persoon {
      {
         return dienblad;
      }
-} 
-
-
+     
+    public String toString()
+    {
+        String naam = voornaam+" "+achternaam;
+        return naam;
+    }
+    
+    public boolean equals(Object object){
+        if (this == object)
+        {
+            return true;
+        }
+        if (!(object instanceof Persoon))
+        {
+            return false;
+        }
+        Persoon other = (Persoon) object;
+        return bsn == other.bsn;
+    }
+    
+    public Betaalwijze getBetaalwijze(){
+        return betaalwijze;
+    }
+    
+    public void setBetaalwijze(double saldo){
+        betaalwijze.setSaldo(saldo);
+    }
+    
+    public Pinpas getPinpas()
+    {
+        return pinpas;
+    }
+    
+    public void newPinpas(int kredietlimiet){
+        pinpas = new Pinpas();
+        pinpas.setKredietLimiet(kredietlimiet);
+    }
+    
+    public double geefKortingsPercentage()
+    {
+        return 0.00;
+    }
+     // methode om op te vragen of er maximum per keer aan de korting zit
+    public boolean heeftMaximum()
+    {
+        return false;
+    }
+     // methode om het maximum kortingsbedrag op te vragen
+    public double geefMaximum()
+    {
+        return 0.00;
+    }
+}

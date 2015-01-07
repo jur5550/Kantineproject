@@ -1,4 +1,3 @@
-
 /**
  * Write a description of class Student here.
  * 
@@ -7,51 +6,48 @@
  */
 public class Student extends Persoon
 {
-    // instance variables - replace the example below with your own
-    private String studieRichting;
     private int studentNummer;
+    private String studieRichting;
 
     /**
      * Constructor for objects of class Student
      */
-    public Student(int bsn, String voornaam, String achternaam, char nieuwGeslacht, int dag,
-    int maand, int jaar, int studentNummer, String studieRichting)
+    public Student(int bsn, String voornaam, String achternaam, char nieuwGeslacht, int dag, int maand, int jaar, int studentNummer, String studieRichting)
     {
         super(bsn, voornaam, achternaam, nieuwGeslacht, dag, maand, jaar);
-        this.studieRichting = studieRichting;
         this.studentNummer = studentNummer;
-       
+        this.studieRichting = studieRichting;
     }
     
     public Student()
     {
         super();
-        this.studieRichting = "";
         this.studentNummer = 0;
-        
-    }
-    public void setStudieRichting(String studieRichting)
-    {
-        this.studieRichting = studieRichting;
+        this.studieRichting = "";
     }
     
-    public String getStudieRichting()
-    {
+    public void setStudentNummer(int nieuwStudentNummer){
+        studentNummer = nieuwStudentNummer;
+    }
+    
+    public int getStudentNummer(){
+        return studentNummer;
+    }
+    
+    public String getStudieRichting(){
         return studieRichting;
     }
     
-    public void setStudentNummer(int studentNummer)
-    {
-        this.studentNummer = studentNummer;
+    public void setStudieRichting(String nieuwStudieRichting){
+        studieRichting = nieuwStudieRichting;
     }
     
-    public int getStudentNummer()
+    public String toString() 
     {
-        return studentNummer;
-    }
-    public void drukAf() 
-    {
-        System.out.println ("Studierichting = " +getStudieRichting());
-        System.out.println("Studentnummer = "+getStudentNummer());
+        String returnValue = "Student \n";
+        returnValue += super.toString() +"\n";
+        returnValue += "Studentnummer: "+ studentNummer + "\n";
+        returnValue += "Studierichting: " + studieRichting + "\n";
+        return returnValue;
     }
 }
