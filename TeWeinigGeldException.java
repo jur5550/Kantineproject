@@ -5,13 +5,18 @@
  * @author (your name) 
  * @version (a version number or a date)
  */
-public class TeWeinigGeldException
+public class TeWeinigGeldException extends Exception
 {
-     TeWeinigGeldException();
+     TeWeinigGeldException(){}
      
-     TeWeinigGeldException(Exception e);
+     TeWeinigGeldException(Exception e)
+     {
+        System.out.println(e.toString());
+     }
+     TeWeinigGeldException(String message)
+     {
+        super(message);
+     }
      
-     TeWeinigGeldException(String message);
-
 }
 

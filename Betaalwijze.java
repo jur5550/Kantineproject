@@ -22,6 +22,6 @@ public abstract class Betaalwijze {
      * Methode om betaling af te handelen
      * @param tebetalen * @return Boolean om te kijken of er voldoende saldo is
      */
-    public abstract boolean betaal(double tebetalen);
+    public abstract void betaal(double tebetalen) throws TeWeinigGeldException;
     
 }

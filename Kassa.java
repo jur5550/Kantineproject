@@ -82,21 +82,25 @@ public class Kassa {
         }
         
         Betaalwijze persoonBetaalwijze = persoon.getBetaalwijze();
-        if (persoonBetaalwijze instanceof Pinpas){
-            if(persoonBetaalwijze.betaal(totaalPrijs)){
-                geldbalans += totaalPrijs;
-                System.out.println("Betaald");
-            }
-            else {
-                System.out.println("ERROR 404 - kredietlimiet niet gevonden");
-                System.out.println(persoonBetaalwijze.getSaldo());
+        if (persoonBetaalwijze instanceof Pinpas)
+        {
+            try
+                {persoonBetaalwijze.betaal(totaalPrijs);
+                 geldbalans += totaalPrijs;
+                
+            } catch (Exception e){
+                System.out.println(e);
+                System.out.println(persoon.getVoornaam());
             }
         }
-        else{
-            if (persoonBetaalwijze.betaal(totaalPrijs)){
+        else
+        {
+            try
+                {persoonBetaalwijze.betaal(totaalPrijs);
                 geldbalans += totaalPrijs;
-            } else {
-                System.out.println("Niet genoeg geld");
+            } catch (Exception e){
+                System.out.println(e);
+                System.out.println(persoon);
             }    
         }
 

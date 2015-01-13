@@ -28,12 +28,12 @@ public class Persoon {
     public Persoon()
     {   
         bsn = 0000;
-        voornaam = "";
+        voornaam = "<voornaam van de persoon>";
         achternaam = "";
         Persoonsgeboortedatum =("0/0/0");
         geslacht = 0;
         betaalwijze = new Pinpas();
-        setBetaalwijze(100.0);
+        setBetaalwijze(10.0);
     }
     
     public void setBSN(int bsn)
